@@ -1,6 +1,9 @@
 #mainContent{
   background-color: gray;
-  height: 2400px;
+/*  height: 2400px;*/
+ margin-top: 45px;
+ padding: 20px;
+ 
 }
 
 footer {
@@ -8,4 +11,5 @@ footer {
   padding: 20px;
   color: #fff;
 }
+
 
