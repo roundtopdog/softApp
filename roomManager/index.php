@@ -18,12 +18,13 @@ if($action == 'list_rooms'){
 
 if($action == 'add_room'){
 	 $name = filter_input(INPUT_POST, 'name');
-	 $rooms = get_rooms();
+	 
 		if ($name == null) {
 		    $error = "Please enter a room name";
 		    echo $error;
 		} else {
 		    add_rooms($name);
+		   	$rooms = get_rooms(); 
 			include('room_list.php');
 			
 	}

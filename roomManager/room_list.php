@@ -3,7 +3,7 @@
 <div class="row">
 	<div class="large-12 colums" id="mainContent">
 		<div class="row">
-			<div class="medium-8 large-8 columns">
+			<div class="medium-4 large-8 columns">
 				<main>
 					<h1>Room List</h1>
 					
@@ -31,7 +31,7 @@
 				</main>
 			</div><!-- end medium 8 large 8 columns -->
 					
-			<div class="medium-4 large-4 columns ">
+			<div class="small-10 medium-4 large-4 columns ">
 				<h1>Add Room</h1>
 					<form action="index.php" method="post" id="room_name">
 						<input type="hidden" name="action" value="add_room">

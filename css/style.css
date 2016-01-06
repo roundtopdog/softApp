@@ -1,7 +1,7 @@
 #mainContent{
   background-color: gray;
 /*  height: 2400px;*/
- margin-top: 45px;
+ /*margin-top: 45px;*/
  padding: 20px;
  
 }
@@ -12,4 +12,7 @@ footer {
   color: #fff;
 }
 
+#above {
+	height: 50px;
+}
 
