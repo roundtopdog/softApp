@@ -20,7 +20,8 @@
 							<td><?php echo $room['roomName']; ?></td>
 
 							<td>
-								<form action="delete_room.php" method="post">
+								<form action="." method="post" >
+									<input type="hidden" name="action" value="delete_room">
 									<input type="hidden" name="room_id" value="<?php echo $room['roomID']; ?> ">
 									<input type="submit" value="delete">
 								</form>
@@ -33,15 +34,15 @@
 					
 			<div class="small-10 medium-4 large-4 columns ">
 				<h1>Add Room</h1>
-					<form action="index.php" method="post" id="room_name">
+					<form action="index.php" method="post" >
 						<input type="hidden" name="action" value="add_room">
 						<label>Room Name:</label>
 						<input type="text" name="name"  placeholder="Add Room Name">
-						<input id="name" type="submit" value="Add">
+						<input type="submit" value="Add">
 					</form>
 			</div><!-- end medium 4 large 4 columns -->
-				
+
 		</div><!-- end row -->
-	</div><!-- end large 12 columns -->
+	</div><!-- end large 12 columns --
 </div> <!-- end row -->
 <?php include '../view/footer.php'; ?>

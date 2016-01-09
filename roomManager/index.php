@@ -17,16 +17,21 @@ if($action == 'list_rooms'){
 }
 
 if($action == 'add_room'){
-	 $name = filter_input(INPUT_POST, 'name');
-	 
+	$name = filter_input(INPUT_POST, 'name');
 		if ($name == null) {
 		    $error = "Please enter a room name";
 		    echo $error;
 		} else {
-		    add_rooms($name);
-		   	$rooms = get_rooms(); 
-			include('room_list.php');
-			
-	}
+			$detectRoomName = detect_room_name($name);
+			$rooms = get_rooms();
+			include('room_list.php');	
+		}
+}
+
+if($action == 'delete_room'){
+	$room_id = filter_input(INPUT_POST,'room_id');
+	delete_room($room_id);
+	$rooms = get_rooms();
+	include('room_list.php');
 }
 ?>
