@@ -24,6 +24,29 @@ function get_software_by_room($room_id){
 	return $softwares;
 }
 
-function
+// add room id and software id to roomSoft
+function get_roomSoft($room_id){
+	global $db;
+	$query = 'SELECT * FROM roomsoft
+				WHERE roomID = :room_id
+				ORDER BY roomID';
+	$statement = $db->prepare($query);
+	$statement->bindValue(":room_id", $room_id);
+	$statement->execute();
+	$roomsofts = $statement->fetchAll();
+	$statement->closeCursor();
+	return $roomsofts;
+}
+
+function add_roomsoft_software( $software_id){
+	global $db;
+	$query = 'INSERT INTO roomsoft (roomsoftID, roomID, softwareID)
+				VALUES 	(NULL, NULL, :softwareID)';
+	$statement = $db->prepare($query);
+	// $statement->bindValue(':roomID', $room_id);
+	$statement->bindValue(':softwareID', $software_id);
+	$statement->execute();
+	$statement->closeCursor();
+}
 
 ?>
