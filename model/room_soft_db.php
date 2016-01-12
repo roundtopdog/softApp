@@ -27,7 +27,7 @@ function get_software_by_room($room_id){
 // add room id and software id to roomSoft
 function get_roomSoft($room_id){
 	global $db;
-	$query = 'SELECT * FROM roomsoft
+	$query = 'SELECT * FROM inventory
 				WHERE roomID = :room_id
 				ORDER BY roomID';
 	$statement = $db->prepare($query);
@@ -40,13 +40,30 @@ function get_roomSoft($room_id){
 
 function add_roomsoft_software( $software_id){
 	global $db;
-	$query = 'INSERT INTO roomsoft (roomsoftID, roomID, softwareID)
+	$query = 'INSERT INTO inventory (roomsoftID, roomID, softwareID)
 				VALUES 	(NULL, NULL, :softwareID)';
 	$statement = $db->prepare($query);
 	// $statement->bindValue(':roomID', $room_id);
 	$statement->bindValue(':softwareID', $software_id);
 	$statement->execute();
 	$statement->closeCursor();
+}
+
+function get_inventory($room_id){
+	global $db;
+	$query = 'select rooms.roomName, software.softwareName from rooms 
+	join inventory 
+	on rooms.roomID = inventory.roomID
+	join software
+	on software.softwareID = inventory.softwareID 
+	WHERE inventory.roomID = 4';
+	$statement = $db->prepare($query);
+	// $statement->bindValue(':room_id', $room_id);
+	$statement->execute();
+	$inventorys = $statement->fetchAll();
+	$statement->closeCursor();
+	return $inventorys;
+	
 }
 
 ?>

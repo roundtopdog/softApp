@@ -7,9 +7,9 @@
 	<link rel="stylesheet" href="../../SoftApp/css/style.css">
 	
   <link rel="stylesheet" href="ttps://cdnjs.cloudflare.com/ajax/libs/foundation/5.5.2/css/foundation.css">
-  <script src="ttp://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
-  <script src="ttp://cdnjs.cloudflare.com/ajax/libs/foundation/5.5.2/js/foundation.min.js"></script>
-  <script src="ttps://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.js"></script>
+  <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+  <script src="http://cdnjs.cloudflare.com/ajax/libs/foundation/5.5.2/js/foundation.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.js"></script>
   <script src="js/softApp.js"></script>
 </head>
 <body>
@@ -27,10 +27,10 @@
 
       <section class="top-bar-section">
         <ul class="left">
-          <li class="active"><a href="/softApp/index.php">Home</a></li>
+          <li><a href="/softApp/index.php">Home</a></li>
           <li><a href="../../SoftApp/roomManager/index.php">Room List</a></li>
           <li><a href="../../SoftApp/softwareManager/index.php">Software List</a></li>
-          <li><a href="../../SoftApp/room_software/index.php">Room / Software</a></li>    
+          <li><a href="../../SoftApp/room_software/index.php">Inventory</a></li>    
         </ul>
       </section>
     </nav>

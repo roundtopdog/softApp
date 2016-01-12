@@ -37,9 +37,10 @@ if($action == 'list_roomSoft'){
 	if($room_id == NULL || $room_id == FALSE){
 		$room_id = 1;
 	}
-	$room_name = get_room_name($room_id);
+	$room_name = get_room_name($room_id);$inventorys = get_inventory($room_id);
 	$rooms = get_rooms();
 	$software_id = filter_input(INPUT_POST, 'softwareID', FILTER_VALIDATE_INT);
 	add_roomsoft_software( $software_id);
+	
 	include('room_software.php');
 }

@@ -50,6 +50,19 @@
 					<?php endforeach; ?>
 					</table>
 				</main>
+
+				<table border="1px solid black">
+					<tr>
+						<th>softwareName</th>
+						<th>misc</th>
+					</tr>
+					<?php foreach ($inventorys as $inventory) : ?>
+					<tr>
+						<td><?php echo $inventory['softwareName']; ?></td>
+						<td><?php echo $inventory['roomName']; ?></td>
+					</tr>
+				<?php endforeach; ?>
+				</table>
 			</div><!-- end medium 4 large 8 -->
 		</div><!-- end row -->
 	</div><!-- end large-12 -->
