@@ -27,7 +27,7 @@
 						<form action="." method="post" >
 						<input type="hidden" name="action" value="add_roomsoft_software">	
 						<select>
-					<?php foreach($softwares as $software) : ?>
+					<?php foreach($statement as $software) : ?>
 					<option value="<?php echo $software['softwarID']; ?>">
 					<?php echo $software['softwareName']; ?>
 					</option>

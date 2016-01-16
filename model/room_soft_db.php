@@ -60,9 +60,9 @@ function get_inventory($room_id){
 	$statement = $db->prepare($query);
 	// $statement->bindValue(':room_id', $room_id);
 	$statement->execute();
-	$inventorys = $statement->fetchAll();
+	// $inventorys = $statement->fetchAll();
 	$statement->closeCursor();
-	return $inventorys;
+	return $statement;
 	
 }
 
