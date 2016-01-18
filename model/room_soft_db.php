@@ -66,4 +66,21 @@ function get_inventory($room_id){
 	
 }
 
+function get_roomID($room_id){
+	global $db;
+	$query = 'select * from inventory 
+	join software 
+	on software.softwareID = inventory.softwareID 
+	join rooms
+	on rooms.roomID = inventory.roomID
+	where inventory.roomID = :room_id';
+	$statement2 = $db->prepare($query);
+	$statement2->bindValue(':room_id', $room_id);
+	$statement2->execute();
+	$roomids = $statement2->fetchAll();
+	$statement2->closeCursor();
+	return $roomids;
+	
+}
+
 ?>

@@ -20,49 +20,51 @@
 						</ul>
 					</nav>	
 
+					<div>
 					<!-- display a table of software associated with the room -->
-					<h2>Room Name : <?php echo $room_name; ?></h2>
+					<h2>Room Name: <?php echo $room_name; ?></h2>
+					<h2>Software Name:
+					<ul style="list-style-type: none;">
+						
+				
+						 <?php foreach ($roomids as $roomid) : ?>
+						    <li><?php echo $roomid['softwareName']; ?></li>
+						<?php endforeach; ?>
+					</ul>
 					
-							<h1>Software Name</h1>
-						<form action="." method="post" >
-						<input type="hidden" name="action" value="add_roomsoft_software">	
+
+					
+							<h2>Software Name</h2>
+						<form action="." method="post">
+						<input type="hidden" name="action" value="add_roomsoft_software">
 						<select>
-					<?php foreach($statement as $software) : ?>
-					<option value="<?php echo $software['softwarID']; ?>">
+						<?php foreach($softwares as $software) : ?>
+							<option name="software_id" value="<?php echo $software['softwareID']; ?>"><?php echo $software['softwareName']; ?></option>
+
+						<?php endforeach; ?>
+						</select>
+						<!-- <input type="text" name="software_id" value="4"> -->
+						<input type="submit" value="add">
+						</form>
+
+
+
+
+					<!-- 	<form action="." method="post" >
+						 <input type="hidden" name="action" value="add_roomsoft_software">
+						<select >
+					<?php foreach($softwares as $software) : ?>
+					<option   value="<?php echo $software['softwarID']; ?>">
 					<?php echo $software['softwareName']; ?>
+
 					</option>
 				<?php endforeach; ?>
 				</select>
 				<input type="submit" value="Add">
-				</form>
-				<table border="1px solid black">
-				<tr>
-					<!-- <th>Room</th> -->
-					<th>software</th>
-					<th>Name</th>
-					</tr>
-					<?php foreach ($roomsofts as $roomsoft) : ?>
-						<tr>
-						<!-- <td><?php echo $roomsoft['roomID']; ?></td> -->
-						<td><?php echo $roomsoft['softwareID']; ?></td>
-						<td><?php echo $software['softwareName']; ?></td>
-						</tr>
-					<?php endforeach; ?>
-					</table>
-				</main>
+				</form> -->
+				</div>
 
-				<table border="1px solid black">
-					<tr>
-						<th>softwareName</th>
-						<th>misc</th>
-					</tr>
-					<?php foreach ($inventorys as $inventory) : ?>
-					<tr>
-						<td><?php echo $inventory['softwareName']; ?></td>
-						<td><?php echo $inventory['roomName']; ?></td>
-					</tr>
-				<?php endforeach; ?>
-				</table>
+				
 			</div><!-- end medium 4 large 8 -->
 		</div><!-- end row -->
 	</div><!-- end large-12 -->

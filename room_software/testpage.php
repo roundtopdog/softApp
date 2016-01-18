@@ -11,16 +11,19 @@ if (!isset($room_id)) {
 }
 
 
-$queryRoom = 'select software.softwareName, rooms.roomName 
-from software JOIN inventory ON software.softwareID = inventory.inventoryID 
-JOIN rooms ON rooms.roomID = inventory.roomID WHERE inventory.roomID = 1
-order by softwareName ';
-$statement = $db->prepare($queryRoom);
-$statement->execute();
-$categories = $statement->fetchAll();
-$statement->closeCursor();
 
-$query = 'select roomName from rooms where roomID = 1';
+$query = 'select * from inventory 
+join software 
+on software.softwareID = inventory.softwareID 
+join rooms
+on rooms.roomID = inventory.roomID
+where inventory.roomID = 2';
+$statement2 = $db->prepare($query);
+$statement2->execute();
+$roomids = $statement2->fetchAll();
+$statement2->closeCursor();
+
+$query = 'select roomName from rooms where roomID = 2';
 $statement = $db->prepare($query);
 	$statement->bindValue(':room_id', $room_id);
 	$statement->execute();
@@ -34,6 +37,15 @@ $statement->execute();
 $softwares = $statement->fetchAll();
 $statement->closeCursor();
 
+function add_inventory($room_id, $software_id){ 
+$query = 'INSERT INTO inventory (inventoryID, roomID, softwareID)
+            VALUES( NULL, :room_id, :software_id)';
+$statement = $db->prepare($query);
+$statement->bindValue(':room_id', $room_id);
+$statement->bindValue(':software_id', $software_id);
+$statement->execute();
+$statement->$closeCursor();
+}
 ?>
 <!DOCTYPE html>
 <html>
@@ -48,12 +60,12 @@ $statement->closeCursor();
 
 <h2><?php echo $room_name; ?></h2>
 
- <ul>
- 	<?php foreach($categories as $category) : ?>
- 		<li><?php echo $category['softwareName']; ?></li>
- 		<br>
- 	<?php endforeach; ?>
- </ul>
+ 
+ <ol>
+ <?php foreach($roomids as $roomid) : ?>
+    <li><?php echo $roomid['softwareID']; ?><?php echo $roomid['softwareName']; ?></li>
+<?php endforeach; ?>
+</ol>
 
  <label>Software</label>
  <select>

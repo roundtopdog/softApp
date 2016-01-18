@@ -19,9 +19,9 @@ if($action == 'list_roomSoft'){
 	}
 	$room_name = get_room_name($room_id);
 	$rooms = get_rooms();
-	//$softwares = get_software_by_room($room_id);
 	$softwares = get_software();
-	$roomsofts = get_roomSoft($room_id);
+	$roomids = get_roomID($room_id);
+
 	include('room_software.php');
 } else if ($action == 'delete_software'){
 	$software_id = filter_input(INPUT_POST, 'software_id', FILTER_VALIDATE_INT);
@@ -33,14 +33,18 @@ if($action == 'list_roomSoft'){
 		header("Location: .?software_id=$software_id");
 	}
 } else if ($action == 'add_roomsoft_software'){
-	$room_id = filter_input(INPUT_GET, 'room_id', FILTER_VALIDATE_INT);
-	if($room_id == NULL || $room_id == FALSE){
-		$room_id = 1;
-	}
-	$room_name = get_room_name($room_id);$inventorys = get_inventory($room_id);
+	 $room_id = filter_input(INPUT_GET, 'room_id', FILTER_VALIDATE_INT);
+	 if($room_id == NULL || $room_id == FALSE){
+	 	$room_id = 1;
+	 }
+	$room_name = get_room_name($room_id);
 	$rooms = get_rooms();
-	$software_id = filter_input(INPUT_POST, 'softwareID', FILTER_VALIDATE_INT);
-	add_roomsoft_software( $software_id);
+	$roomids = get_roomID($room_id);
+	$softwares = get_software();
+
+$software_id = filter_input(INPUT_POST, 'software_id', FILTER_VALIDATE_INT);
+print_r($room_id);
+print_r($software_id);
 	
 	include('room_software.php');
 }
