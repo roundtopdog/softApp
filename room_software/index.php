@@ -34,16 +34,16 @@ if($action == 'list_roomSoft'){
 	}
 } else if ($action == 'add_roomsoft_software'){
 	 $room_id = filter_input(INPUT_GET, 'room_id', FILTER_VALIDATE_INT);
-	 if($room_id == NULL || $room_id == FALSE){
-	 	$room_id = 1;
-	 }
+	  if($room_id == NULL || $room_id == FALSE){
+	  	$room_id = 1;
+	  }
 	$room_name = get_room_name($room_id);
 	$rooms = get_rooms();
 	$roomids = get_roomID($room_id);
 	$softwares = get_software();
 
 $software_id = filter_input(INPUT_POST, 'software_id', FILTER_VALIDATE_INT);
-print_r($room_id);
+ print_r($room_id);
 print_r($software_id);
 	
 	include('room_software.php');

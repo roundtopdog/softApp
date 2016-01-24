@@ -11,9 +11,10 @@
 					<nav>
 						<ul>
 						<?php foreach($rooms as $room) : ?>
-							<li><a href="?room_id=<?php echo $room['roomID']; ?>">
+							<li><a href="?room_id=<?php echo $room['roomID']; ?>"name="room_id" value="<?php echo $room['roomID']; ?>">
 							<?php echo $room['roomName']; ?>
 							<?php echo $room['roomID']; ?>
+							<input type="hidden" >
 							</a>
 							</li>
 						<?php endforeach; ?>
@@ -37,13 +38,16 @@
 							<h2>Software Name</h2>
 						<form action="." method="post">
 						<input type="hidden" name="action" value="add_roomsoft_software">
-						<select>
+						<input type="hidden" name="room_id" value="<?php echo $roomid['roomID']; ?>"> 
+						<select type="hidden" name="software_id" >
 						<?php foreach($softwares as $software) : ?>
-							<option name="software_id" value="<?php echo $software['softwareID']; ?>"><?php echo $software['softwareName']; ?></option>
-
-						<?php endforeach; ?>
+							<option name="software_id" value="<?php echo $software['softwareID']; ?>">
+							<?php echo $software['softwareName']; ?></option>
+							<?php endforeach; ?>
 						</select>
-						<!-- <input type="text" name="software_id" value="4"> -->
+						
+						<!-- <input type="hidden" name="software_id" value="<?php echo $software['softwareID']; ?>"> -->
+						
 						<input type="submit" value="add">
 						</form>
 

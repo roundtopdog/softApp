@@ -30,7 +30,8 @@
           <li><a href="/softApp/index.php">Home</a></li>
           <li><a href="../../SoftApp/roomManager/index.php">Room List</a></li>
           <li><a href="../../SoftApp/softwareManager/index.php">Software List</a></li>
-          <li><a href="../../SoftApp/room_software/index.php">Inventory</a></li>    
+          <li><a href="../../SoftApp/room_software/index.php">Inventory</a></li> 
+          <li><a href="../../SoftApp/inventoryManager/index.php">Misc</a></li>   
         </ul>
       </section>
     </nav>
